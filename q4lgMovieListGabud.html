@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎬 Movie List Application</title>
+    <!-- External CSS file for styling -->
+    <link rel="stylesheet" href="movieList.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎬 Movie List 🍿</h1>
+        
+        <!-- Movie Input Form -->
+        <form id="movieForm">
+            
+            <!-- Title input field -->
+            <label for="title">Title:</label>
+            <input type="text" id="title" required>
+
+            <!-- Year input field -->
+            <label for="year">Year:</label>
+            <input type="number" id="year" min="1900" max="2100" required>
+
+            <!-- Genre dropdown selection -->
+            <label for="genre">Genre:</label>
+            <select id="genre" required>
+                <option value="Action">Action</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Drama">Drama</option>
+                <option value="Horror">Horror</option>
+                <option value="Romance">Romance</option>
+                <option value="Sci-Fi">Sci-Fi</option>
+                <option value="Animation">Animation</option>
+            </select>
+
+            <!-- Star rating system (click to select) -->
+            <label>Rating:</label>
+            <div class="star-rating">
+                <span class="star" data-rating="1">★</span>
+                <span class="star" data-rating="2">★</span>
+                <span class="star" data-rating="3">★</span>
+                <span class="star" data-rating="4">★</span>
+                <span class="star" data-rating="5">★</span>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit">Add Movie</button>
+        </form>
+
+        <!-- Movie list display area -->
+        <h2>Movie List</h2>
+        <div id="movieContainer">
+            <!-- Movies will be displayed here dynamically -->
+        </div>
+    </div>
+
+    <!-- External JavaScript file -->
+    <script src="movieList.js"></script>
+</body>
+</html>

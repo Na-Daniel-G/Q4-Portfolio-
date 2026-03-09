@@ -1,0 +1,82 @@
+/* 
+ * Portfolio Index Page Stylesheet
+ * Simple and clean styling for the Q4 portfolio homepage
+ */
+
+/* ========== GENERAL STYLES ========== */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0e7ff;
+    padding: 20px;
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+/* ========== HEADINGS ========== */
+h1 {
+    text-align: center;
+    color: #1e293b;
+}
+
+.subtitle {
+    text-align: center;
+    color: #64748b;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #3b82f6;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+/* ========== EXERCISE LIST ========== */
+.exercise-list {
+    list-style: none;
+    padding: 0;
+}
+
+.exercise-list li {
+    margin-bottom: 10px;
+}
+
+.exercise-list a {
+    display: block;
+    padding: 12px 15px;
+    background-color: #f1f5f9;
+    color: #1e293b;
+    text-decoration: none;
+    border-radius: 5px;
+    border-left: 3px solid #3b82f6;
+}
+
+.exercise-list a:hover {
+    background-color: #3b82f6;
+    color: white;
+}
+
+/* ========== BADGES ========== */
+.badge {
+    background-color: #3b82f6;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    margin-left: 8px;
+}
+
+/* ========== FOOTER ========== */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #e2e8f0;
+    color: #64748b;
+    font-size: 13px;
+}
