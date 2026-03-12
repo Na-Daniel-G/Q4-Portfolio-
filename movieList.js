@@ -8,7 +8,7 @@ var selectedRating = 0;
 for (var i = 0; i < stars.length; i++) {
     stars[i].addEventListener('click', function() {
         // Get the rating value from the clicked star's data-rating attribute
-        selectedRating = this.getAttribute('data-rating');
+        selectedRating = parseInt(this.getAttribute('data-rating'), 10);
         
         // Update the visual display of stars
         updateStarDisplay();
@@ -19,7 +19,7 @@ for (var i = 0; i < stars.length; i++) {
 function updateStarDisplay() {
     // Loop through all stars
     for (var i = 0; i < stars.length; i++) {
-        var starValue = stars[i].getAttribute('data-rating');
+        var starValue = parseInt(stars[i].getAttribute('data-rating'), 10);
         
         // If this star's value is less than or equal to selected rating, make it yellow
         if (starValue <= selectedRating) {
@@ -56,7 +56,7 @@ movieForm.addEventListener('submit', function(e) {
         title: movieTitle,
         year: movieYear,
         genre: movieGenre,
-        rating: selectedRating
+        rating: parseInt(selectedRating, 10)
     };
 
     // ========== LOCALSTORAGE OPERATIONS ==========
@@ -75,8 +75,32 @@ movieForm.addEventListener('submit', function(e) {
         movieList = [];
     }
 
-    // Add the new movie to the array
-    movieList.push(newMovie);
+    // Check if this title already exists (case-insensitive)
+    var normalizedTitle = movieTitle.trim().toLowerCase();
+    var existingMovieIndex = -1;
+    for (var i = 0; i < movieList.length; i++) {
+        if (movieList[i].title.trim().toLowerCase() === normalizedTitle) {
+            existingMovieIndex = i;
+            break;
+        }
+    }
+
+    // Add new movie if title does not exist, otherwise update existing movie
+    if (existingMovieIndex === -1) {
+        movieList.push(newMovie);
+    } else {
+        // Average the old and new ratings, then overwrite year/genre details
+        var oldRating = parseInt(movieList[existingMovieIndex].rating, 10);
+        var newRating = parseInt(selectedRating, 10);
+        var averagedRating = Math.round((oldRating + newRating) / 2);
+
+        movieList[existingMovieIndex] = {
+            title: movieTitle,
+            year: movieYear,
+            genre: movieGenre,
+            rating: averagedRating
+        };
+    }
 
     // Save the updated array back to localStorage as JSON string
     localStorage.setItem('movies', JSON.stringify(movieList));
@@ -109,6 +133,12 @@ function displayMovieList() {
 
     // Parse JSON string back into JavaScript array
     var movieList = JSON.parse(storedMovies);
+
+    // Show message if parsed list is empty
+    if (movieList.length === 0) {
+        movieContainer.innerHTML = '<p>No movies added yet. Add your first movie!</p>';
+        return;
+    }
 
     // Clear the container before adding movies
     movieContainer.innerHTML = '';
@@ -159,7 +189,8 @@ function deleteMovie(index) {
         var movieList = JSON.parse(storedMovies);
         
         // Get the movie title for confirmation message
-        var movieToDelete = movieList[index];
+        var movieIndex = parseInt(index, 10);
+        var movieToDelete = movieList[movieIndex];
         
         // Show confirmation dialog
         var confirmDelete = confirm('Are you sure you want to delete "' + movieToDelete.title + '"?');
@@ -167,7 +198,7 @@ function deleteMovie(index) {
         // Only delete if user confirmed
         if (confirmDelete) {
             // Remove the movie at the specified index
-            movieList.splice(index, 1);
+            movieList.splice(movieIndex, 1);
             
             // Save the updated array back to localStorage
             localStorage.setItem('movies', JSON.stringify(movieList));
