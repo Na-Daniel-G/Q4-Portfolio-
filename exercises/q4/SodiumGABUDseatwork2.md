@@ -95,6 +95,9 @@ The difference between absolute and fixed are absolute scrolls with the document
 
 - Guided Question: Why does the notice appear on top of the content? What happens if you swap the z‑index values?
 
+- Answer: 
+Both elements compete in the same area. The one with the higher z-index wins and gets painted on top. .notice has z-index: 2 vs .content's z-index: 1, so the notice overlaps. If you swap the z-index values, .content would be painted on top, covering/hiding the "Notice!" text wherever they overlap.
+
 - Challenge: 
     * What changes that you have to do on the code that will position .notice box on the top right corner of the .content box? Please write the code on paper as well (both html and css on the part of .notice and .content).
     * Try to change the position of .content to relative then to fixed. What do you observed each time?
