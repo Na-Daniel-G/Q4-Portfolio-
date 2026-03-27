@@ -103,12 +103,25 @@ Both elements compete in the same area. The one with the higher z-index wins and
     * Try to change the position of .content to relative then to fixed. What do you observed each time?
     * What do you observe on about the effect of z-index on .notice and .content boxes?
 
+    Answer: z-index only works on positioned elements. Higher value means layered on top. If you nest positioned elements, a child's z-index only competes with siblings inside the same parent, not with outside elements.
+
 3. Please answer the following reflection questions (15 minutes)
 
     a. Could you summarize the differences between the CSS position values (static, relative, absolute, fixed)? 
 
+    Answer: Static is the default position for everything, relative is similar to it in a sense that the element still sits in its normal spot, but you can now nudge it around using top, left, bottom, or right while the original space it occupied is still reserved, so other elements don't fill the gap. With absolute, the element is lifted out of the normal flow, meaning no space is saved for it. Then it positions itself based on the nearest parent element that has a non-static position. If there are no parent elements present, it just uses the entire page as its reference.
+    And finally fixed works similar to absolute, it's also removed from the flow, but instead of anchoring to a parent, it anchors to the browser window itself. This means it stays in the same spot on screen even when you scroll, which is why it's commonly used for things like navigation bars or footers that should always be visible.
+
     b. How does absolute positioning depend on its parent element?
+    
+    Answer: If you set an element to absolure, it needs a reference point for where to place itself.It looks at its parent, then the parent's parent, then the parent's parent's parent... and so on, until it finds one that has a position value that isn't static, that's the point it measures it's dimensions from. If it finds nothing, it will just use the whole page.
 
     c. How do you differentiate sticky from fixed (you can research on sticky)?
 
+    Answer: Sticky acts like relative while scrolling normally, then snaps into place like fixed once it hits a certain point. But it only stays pinned while its parent container is still in view — once the parent scrolls out, the sticky element goes with it unlike fixed.
+
     d. If you were designing a webpage for a school event, how might you use positioning to highlight important information? Please give concrete examples.
+    
+    Answers: 
+    - Fixed Nav bar: keeps the event name and section links (Schedule, Register, Prizes) always accessible
+    - Deadline reminders: on a registration card, a "Deadline: April 1" label above the card edge to signal urgency.
