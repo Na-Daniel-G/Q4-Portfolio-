@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <meta name="author" content="Sir Roy/Al Mendoza">
+  <meta name="author" content="Daniel S. Gabud">
   <meta name="description" content="testing and debugging">
   <meta name="keywords" content="testing and debugging">
-  <title>CS3 </title>
+  <title>Nlogonia Error Logs - Daniel S. Gabud</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,9 +40,10 @@
       <a href="index.html#start">Table</a>
       <a href="index.html#input">Input</a>
       <a href="index.html#output">Output</a>
+      <a href="#table">Error Logs</a>
     </nav>
     
-    <h1 style="padding: 30px">Your Name / Section Mar 2026 </h1>
+    <h1 style="padding: 30px">Daniel S. Gabud 9-Sodium - Mar 2026 </h1>
   </header>
 
   <section id="table">
@@ -56,63 +57,63 @@
       </tr>
       <tr>
         <td> 1 </td> 
-        <td> </td> 
-        <td> </td>
-        <td> </td>
+        <td> style.css line 28 (CSS) </td> 
+        <td> Navigation bar was not fixed on top while scrolling. </td>
+        <td> Added position: fixed; to nav. </td>
       </tr>
       <tr>
         <td> 2 </td> 
-        <td> </td> 
-        <td> </td>
-        <td> </td>
+        <td> style.css line 29 (CSS) </td> 
+        <td> Fixed nav did not have explicit top alignment. </td>
+        <td> Added top: 0; to pin nav at first line. </td>
       </tr>
       <tr>
         <td> 3 </td> 
-        <td> </td> 
-        <td> </td>
-        <td> </td>
+        <td> style.css line 35 (CSS) </td> 
+        <td> nav a used display: block; causing links to stack vertically. </td>
+        <td> Changed to display: inline-block; for one-line nav links. </td>
       </tr>
       <tr>
         <td> 4 </td> 
-        <td> </td> 
-        <td> </td>
-        <td> </td>
+        <td> style.css line 42 (CSS) </td> 
+        <td> Wrong selector nav a :hover had extra space so hover did not trigger on links. </td>
+        <td> Corrected selector to nav a:hover. </td>
       </tr>
       <tr>
         <td> 5 </td> 
-        <td> </td> 
-        <td> </td>
-        <td> </td>
+        <td> style.css line 55 (CSS) </td> 
+        <td> .point had no absolute positioning, so left/bottom from JS could not place the point correctly. </td>
+        <td> Added position: absolute; in .point class. </td>
       </tr>
       <tr>
         <td> 6 </td> 
-        <td> </td> 
-        <td> </td>
-        <td> </td>
+        <td> style.css line 96 (CSS) </td> 
+        <td> Sprite image path was incorrect. </td>
+        <td> Changed background URL to images/sprites.png. </td>
       </tr>
       <tr>
         <td> 7 </td> 
-        <td> </td> 
-        <td> </td>
-        <td> </td>
+        <td> script.js line 1 (JS) </td> 
+        <td> plotPoint function had no parameters even though the button passes x0, y0, x, y. </td>
+        <td> Updated function signature to plotPoint(x0, y0, x, y). </td>
       </tr>
       <tr>
         <td> 8 </td> 
-        <td> </td> 
-        <td> </td>
-        <td> </td>
+        <td> script.js line 7 (JS) </td> 
+        <td> Used invalid property point.styleleft. </td>
+        <td> Corrected to point.style.left. </td>
       </tr>
       <tr>
         <td> 9 </td> 
-        <td> </td> 
-        <td> </td>
-        <td> </td>
+        <td> script.js line 8 (JS) </td> 
+        <td> Used invalid property point.stylebottom. </td>
+        <td> Corrected to point.style.bottom. </td>
       </tr>
       <tr>
         <td> 10 </td> 
-        <td> </td> 
-        <td> </td>
-        <td> </td>
+        <td> script.js line 26 (JS) </td> 
+        <td> Missing closing brace for the function caused a syntax error. </td>
+        <td> Added the final } to properly close plotPoint(). </td>
       </tr>
      
     </table>
